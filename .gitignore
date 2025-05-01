@@ -1,0 +1,7 @@
+# ignore images in the CNN subfolder
+DL/CNN/images/
+
+# soem extra files to be ignored
+Scraping/edgedriver_win64.zip
+Scraping/Driver_Notes/
+Scraping/msedgedriver.exe
