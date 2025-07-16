@@ -13,14 +13,14 @@ def list_formats(video_url):
         for idx, f in enumerate(formats):
             # Only show formats with resolution or audio quality
             if f.get('vcodec') != 'none' or f.get('acodec') != 'none':
-                fmt_str = f"{idx+1}. Format ID: {f['format_id']} | Ext: {f['ext']} | "
+                format_list.append(f['format_id'])
+                fmt_str = f"{len(format_list)}. Format ID: {f['format_id']} | Ext: {f['ext']} | "
                 if f.get('resolution'):
                     fmt_str += f"Video: {f['resolution']}"
                 elif f.get('abr'):
                     fmt_str += f"Audio: {f['abr']}kbps"
                 fmt_str += f" | Note: {f.get('format_note', '')}"
                 print(fmt_str)
-                format_list.append(f['format_id'])
     return format_list
 
 def download_media(url, download_dir, is_playlist, is_audio, format_id):
