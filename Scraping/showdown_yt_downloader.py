@@ -48,6 +48,7 @@ def list_video_formats(formats):
 def download_combined(video_id, audio_id, url, output='output.mp4'):
     subprocess.run([
         'yt-dlp',
+        '--impersonate', 'chrome',
         '-f', f"{video_id}+{audio_id}",
         url,
         '-o', output
@@ -56,6 +57,7 @@ def download_combined(video_id, audio_id, url, output='output.mp4'):
 def download_audio(audio_id, url, output='audio_only.m4a'):
     subprocess.run([
         'yt-dlp',
+        '--impersonate', 'chrome',
         '-f', audio_id,
         url,
         '-o', output
